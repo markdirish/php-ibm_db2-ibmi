@@ -23,7 +23,7 @@
   $Id$
 */
 
-#define	PHP_IBM_DB2_VERSION	"2.0.8-zs3"
+#define	PHP_IBM_DB2_VERSION	"3.0.0i" // trailing 'i' to indicate IBM i flavor of this module
 
 #ifndef PHP_IBM_DB2_H
 #define PHP_IBM_DB2_H
