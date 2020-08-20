@@ -1,6 +1,6 @@
 # IBM_DB2
 
-Interface for PHP to Db2 for i. This is a fork of the `ibm_db2` nterface for PHP to Db2 for z/OS and LUW.
+Interface for PHP to Db2 for i. This is a fork of the `ibm_db2` interface for PHP to Db2 for z/OS and LUW.
 
 This code is only to be compiled and run on IBM i and offers no guaranteed compatibility with other platforms.
 
