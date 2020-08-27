@@ -29,6 +29,7 @@ script:
   Database=sample
   EOF
 - cat db2cli.ini
+- cat Makefile
 - .github/run-tests.sh
 
 after_failure:
