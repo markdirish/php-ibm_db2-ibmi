@@ -33,7 +33,7 @@ jobs:
         run: pwd && ls -la
         
       - name: RUn db2 stuff
-        run: docker exec -it db2 su - db2inst1 -c "db2 create db sample"
+        run: docker exec db2 su - db2inst1 -c "db2 create db sample"
 
       - name: Checkout code
         uses: actions/checkout@v1
