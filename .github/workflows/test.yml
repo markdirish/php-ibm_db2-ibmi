@@ -24,12 +24,12 @@ jobs:
           DBNAME: sample
         volumes: 
         - /github/home/database:/database
-        options: --name db2 -itd --privileged=true
+        options: --name db2 --privileged=true
  
     steps:
         
       - name: Start Db2
-        run: docker exec -it db2 su - db2inst1 -c "db2 create db sample"
+        run: -it db2 su - db2inst1 -c "db2 create db sample"
 
       - name: Checkout code
         uses: actions/checkout@v1
