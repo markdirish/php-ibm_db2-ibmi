@@ -23,7 +23,8 @@ jobs:
         LICENSE: accept
         DB2INST1_PASSWORD: password
         DBNAME: sample
-      volumes: [$HOME/database:/database]
+      volumes: 
+      - $HOME/database:/database
       options: \
         --name db2 \
         --privileged=true
