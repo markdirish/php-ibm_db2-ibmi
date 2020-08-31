@@ -24,7 +24,7 @@ jobs:
           DBNAME: sample
         volumes: 
         - /github/home/database:/database
-        options: --name db2 -it --privileged=true
+        options: --name db2 -itd --privileged=true
  
     steps:
         
