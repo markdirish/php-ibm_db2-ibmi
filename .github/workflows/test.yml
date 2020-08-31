@@ -16,16 +16,16 @@ jobs:
         operating-system: [ubuntu-16.04]
         php-versions: ['7.4']
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
-    container: 
-      image: ibmcom/db2
-      ports: [60000, 50000]
-      env:
-        LICENSE: accept
-        DB2INST1_PASSWORD: password
-        DBNAME: sample
-      volumes: 
-      - /github/home/database:/database
-      options: --name db2 --privileged=true
+#     container: 
+#       image: ibmcom/db2
+#       ports: [60000, 50000]
+#       env:
+#         LICENSE: accept
+#         DB2INST1_PASSWORD: password
+#         DBNAME: sample
+#       volumes: 
+#       - /github/home/database:/database
+#       options: --name db2 --privileged=true
  
     steps:
 
