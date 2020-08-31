@@ -36,7 +36,7 @@ jobs:
         run: ./.github/check-start.sh
       
       - name: Start Db2
-        run: docker exec mydb2 bash -c "su - db2inst1"
+        run: docker exec db2 bash -c "su - db2inst1"
         
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
