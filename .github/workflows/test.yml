@@ -41,6 +41,7 @@ jobs:
 #           ini-values: post_max_size=256M, short_open_tag=On
 #           coverage: xdebug        
           tools: phpize
+          ini-values: variables_order="EGPCS"
 
       - name: Download CLI driver 
         run: curl https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/linuxx64_odbc_cli.tar.gz | tar -xz
