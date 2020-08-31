@@ -16,7 +16,7 @@ jobs:
         operating-system: [ubuntu-16.04]
         php-versions: ['7.4']
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
-    container: ibmcom/db2
+#     container: ibmcom/db2
     steps:
 
       - name: Checkout code
