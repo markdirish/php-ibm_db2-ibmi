@@ -8,8 +8,6 @@ on:
     
 jobs:
   run:
-    env:
-      BOGUS: bogus
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
@@ -26,12 +24,12 @@ jobs:
           DBNAME: sample
         volumes: 
         - /github/home/database:/database
-        options: --name db2 --privileged=true
+        options: --name db2 --privileged=true -d ibmcom/db2express-c db2start
  
     steps:
         
-      - name: RUn db2 stuff
-        run: docker exec -d db2 su - db2inst1 -c "db2 create db sample"
+      - name: Start Db2
+        run: docker exec -d db2 bmcom/db2express-c db2start
 
       - name: Checkout code
         uses: actions/checkout@v1
