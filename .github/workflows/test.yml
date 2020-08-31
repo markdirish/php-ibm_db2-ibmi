@@ -27,21 +27,14 @@ jobs:
         options: --name db2 --privileged=true
  
     steps:
-      - name: Wait for completion
-        run: while true \
-                do \
-                  if (docker logs db2 | grep 'Setup has completed') \
-                  then \
-                    break \
-                  fi \
-                  sleep 20 \
-                done
-        
       - name: Start Db2
         run: docker exec db2 bash -c "su - ${DB2INSTANCE}"
 
       - name: Checkout code
         uses: actions/checkout@v1
+      
+      - name: Wait for completion
+        run: ./.github/check-start.sh
         
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
