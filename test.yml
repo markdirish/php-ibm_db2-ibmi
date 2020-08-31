@@ -1,0 +1,50 @@
+name: Test ibm_db
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  run:
+    env:
+      BOGUS: bogus
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-16.04]
+        php-versions: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4']
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+    container: ibmcom/db2
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v1
+        
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, intl
+          ini-values: post_max_size=256M, short_open_tag=On
+          coverage: xdebug        
+          tools: php-cs-fixer, phpunit
+
+      - name: Download CLI driver 
+        run: curl https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/linuxx64_odbc_cli.tar.gz | tar -xz
+      
+      - run: phpize
+      - run: ./configure --with-IBM_DB2=$PWD/clidriver
+      - run: make
+      - run: |
+            cat <<EOF > db2cli.ini
+            [SAMPLE]
+            Hostname=localhost
+            Protocol=TCPIP
+            Port=60000
+            Database=sample
+            EOF
+      - run: cat db2cli.ini
+      - run: cat Makefile
+      - run: .github/run-tests.sh
