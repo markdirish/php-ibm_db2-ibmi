@@ -24,13 +24,8 @@ jobs:
           DBNAME: sample
         volumes: 
         - /github/home/database:/database
-        options: >-
-          --name db2
-          --privileged=true
-          --health-cmd "docker logs db2 | grep 'Setup has completed'"
-          --health-interval 10s
-          --health-timeout 10s
-          --health-retries 100
+        options: --name db2 --privileged=true
+
  
     steps:
 
