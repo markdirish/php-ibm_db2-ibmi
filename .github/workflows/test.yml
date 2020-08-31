@@ -29,13 +29,12 @@ jobs:
     steps:
       - name: Wait for completion
         run: while true \
-                do
-                  if (docker logs db2 | grep 'Setup has completed')
-                  then
-                    break
-                  fi
-
-                  sleep 20
+                do \
+                  if (docker logs db2 | grep 'Setup has completed') \
+                  then \
+                    break \
+                  fi \
+                  sleep 20 \
                 done
         
       - name: Start Db2
