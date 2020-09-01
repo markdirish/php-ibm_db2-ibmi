@@ -66,3 +66,7 @@ jobs:
       - run: cat db2cli.ini
       - run: cat Makefile
       - run: .github/run-tests.sh
+      
+      - name: Print failing tests
+        if: ${{ failure() }}
+        run: cat report.txt
