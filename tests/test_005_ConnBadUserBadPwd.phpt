@@ -7,7 +7,7 @@ IBM-DB2: db2_connect() - bad user / bad pwd
 
 require_once('connection.inc');
 
-$baduser = "non_user";
+$baduser = "non_user" . rand(1, 100);
 $badpass = "invalid_password";
 $dsn = "DATABASE=$db;UID=$baduser;PWD=$badpass;";
 $conn = db2_connect($dsn, "", "");
