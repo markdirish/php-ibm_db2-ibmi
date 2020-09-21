@@ -18,4 +18,4 @@ export DB2CLIINIPATH=$PWD
 # Ensure make returns non-zero when a test fails
 export REPORT_EXIT_STATUS=1
 
-exec make test --set-timeout 120 < /dev/null
+exec make test < /dev/null
