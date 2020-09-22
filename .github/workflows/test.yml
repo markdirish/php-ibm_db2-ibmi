@@ -47,7 +47,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}   
           tools: phpize
-          ini-values: variables_order="EGPCS"
+          ini-values: variables_order="EGPCS", max_execution_time=120
 
       - name: Download CLI driver 
         run: curl https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/linuxx64_odbc_cli.tar.gz | tar -xz
