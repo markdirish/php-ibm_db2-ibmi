@@ -47,7 +47,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}   
           tools: phpize
-          ini-values: variables_order="EGPCS", max_execution_time=120
+          ini-values: variables_order="EGPCS"
 
       - name: Download CLI driver 
         run: curl https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/linuxx64_odbc_cli.tar.gz | tar -xz
@@ -62,6 +62,7 @@ jobs:
             Protocol=TCPIP
             Port=60000
             Database=sample
+            ConnectTimeout=10
             EOF
       - run: cat db2cli.ini
       - run: cat Makefile
