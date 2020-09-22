@@ -62,7 +62,7 @@ jobs:
             Protocol=TCPIP
             Port=60000
             Database=sample
-            ConnectTimeout=10
+            ConnectTimeout=600
             EOF
       - run: cat db2cli.ini
       - run: cat Makefile
